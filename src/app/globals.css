@@ -1,0 +1,88 @@
+@import 'tailwindcss';
+@import '@fontsource/plus-jakarta-sans/400.css';
+@import '@fontsource/plus-jakarta-sans/500.css';
+@import '@fontsource/plus-jakarta-sans/600.css';
+@import '@fontsource/plus-jakarta-sans/700.css';
+@import '@fontsource/plus-jakarta-sans/800.css';
+
+@theme {
+  --color-paper: #faf8f1;
+  --color-sand: #f1ede4;
+  --color-peach: #faecdf;
+  --color-brand: #b9572d;
+  --color-ink: #2c2c25;
+  --color-muted: #77746a;
+  --color-line: #e8e4da;
+  --font-sans: 'Plus Jakarta Sans', sans-serif;
+  --animate-toast: toast-in 180ms ease-out;
+  @keyframes toast-in {
+    from {
+      opacity: 0;
+      transform: translateY(8px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+}
+
+@layer base {
+  body {
+    @apply bg-paper font-sans text-ink antialiased;
+  }
+  button,
+  a,
+  input,
+  select,
+  textarea {
+    -webkit-tap-highlight-color: transparent;
+  }
+  button:not(:disabled),
+  select {
+    cursor: pointer;
+  }
+  :focus-visible {
+    outline: 2px solid var(--color-brand);
+    outline-offset: 4px;
+  }
+  ::selection {
+    background: #f2d5bf;
+    color: #2c2c25;
+  }
+}
+
+@layer components {
+  .page-width {
+    @apply mx-auto w-full max-w-[1200px] px-6 sm:px-8 lg:px-10;
+  }
+  .eyebrow {
+    @apply text-[10px] font-bold uppercase tracking-[0.13em] text-brand;
+  }
+  .button-primary {
+    @apply inline-flex min-h-11 items-center justify-center gap-3 rounded-full bg-brand px-6 py-3 text-xs font-semibold text-white transition-colors hover:bg-[#984323] disabled:cursor-not-allowed disabled:opacity-50;
+  }
+  .button-secondary {
+    @apply inline-flex min-h-11 items-center justify-center gap-3 rounded-full border border-line bg-white px-6 py-3 text-xs font-semibold text-ink transition-colors hover:border-brand hover:text-brand;
+  }
+  .input {
+    @apply w-full rounded-lg border border-line bg-white px-3.5 py-3 text-sm text-ink outline-none placeholder:text-muted/75 focus:border-brand focus:ring-2 focus:ring-brand/10 aria-invalid:border-red-500;
+  }
+  .panel {
+    @apply rounded-2xl border border-line/80 bg-white p-5 sm:p-6;
+  }
+}
+
+@media print {
+  header,
+  footer,
+  .no-print {
+    display: none !important;
+  }
+  body {
+    background: white;
+  }
+  main {
+    padding: 0 !important;
+  }
+}
