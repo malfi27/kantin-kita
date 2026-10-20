@@ -3,7 +3,6 @@ import { useState } from 'react';
 import { ArrowUpRight, Check } from 'lucide-react';
 import { Field } from './ui';
 import { validateContact } from '@/lib/order';
-// Form demo menyimpan satu pesan terakhir, bukan mengirim email atau menghubungi pengelola.
 export function ContactForm() {
   const [data, setData] = useState({ name: '', email: '', message: '' });
   const [errors, setErrors] = useState({});

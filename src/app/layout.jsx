@@ -6,7 +6,6 @@ export const metadata = {
   description:
     'Makanan rumahan, harga bersahabat. Pilih menu favoritmu, pesan, lalu ambil di Kantin Kita.',
 };
-// Layout menjaga navbar, footer, dan state keranjang tetap tersedia di setiap halaman.
 export default function RootLayout({ children }) {
   return (
     <html lang="id">

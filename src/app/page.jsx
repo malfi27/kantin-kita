@@ -4,7 +4,6 @@ import { ArrowRight, Clock3, CookingPot, ShoppingBag, Wallet } from 'lucide-reac
 import { MenuCard } from '@/components/menu-card';
 import { ButtonLink } from '@/components/ui';
 import { menuItems } from '@/lib/menu';
-// Beranda adalah komponen server; hanya kartu menu yang memerlukan interaksi browser.
 export default function Home() {
   const favorites = [menuItems[0], menuItems[1], menuItems[5]];
   return (

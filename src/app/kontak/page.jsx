@@ -3,7 +3,6 @@ import { PageHeading } from '@/components/ui';
 import { ContactForm } from '@/components/contact-form';
 import { LocationMap } from '@/components/location-map';
 export const metadata = { title: 'Kontak' };
-// Halaman kontak menggunakan peta ilustrasi dan form lokal sesuai cakupan prototipe.
 export default function KontakPage() {
   return (
     <main id="main" className="page-width py-10 sm:py-12">

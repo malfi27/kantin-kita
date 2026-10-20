@@ -1,4 +1,3 @@
-// Data contoh terpusat supaya harga di kartu dan ringkasan selalu sama.
 export const menuItems = [
   {
     id: 'nasi-ayam',
@@ -51,7 +50,6 @@ export const menuItems = [
     image: '/images/pisang-goreng.jpg',
   },
 ];
-// Formatter menerima angka rupiah dan menghasilkan harga tanpa desimal.
 export function rupiah(value) {
   return `Rp${new Intl.NumberFormat('id-ID').format(value)}`;
 }

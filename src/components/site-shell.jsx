@@ -11,7 +11,6 @@ const links = [
   { href: '/ringkasan', label: 'Ringkasan Pemesanan' },
   { href: '/kontak', label: 'Kontak' },
 ];
-// Logo dipakai bersama oleh header dan footer supaya identitasnya konsisten.
 export function Logo() {
   return (
     <Link
@@ -26,7 +25,6 @@ export function Logo() {
     </Link>
   );
 }
-// Navbar menampilkan route aktif dan jumlah item; versi ponsel memakai menu buka-tutup.
 export function Navbar() {
   const pathname = usePathname();
   const { count } = useCart();
@@ -90,7 +88,6 @@ export function Navbar() {
     </header>
   );
 }
-// Footer tetap ringkas dan menyebutkan bahwa situs merupakan prototipe.
 export function Footer() {
   return (
     <footer className="mt-auto bg-sand">

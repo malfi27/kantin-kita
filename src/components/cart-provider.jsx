@@ -7,7 +7,6 @@ const CartContext = createContext(null);
 const CART_KEY = 'kantin-kita:cart';
 const NOTE_KEY = 'kantin-kita:note';
 const ORDER_KEY = 'kantin-kita:order';
-// Provider menghubungkan lima route dengan satu state keranjang dan penyimpanan lokal.
 export function CartProvider({ children }) {
   const [items, setItems] = useState([]);
   const [note, setNote] = useState('');
@@ -18,7 +17,6 @@ export function CartProvider({ children }) {
   const confirmed = useRef(false);
   const timer = useRef(null);
   useEffect(() => {
-    // Baca storage setelah mount untuk menghindari perbedaan HTML server dan browser.
     try {
       setItems(parseCart(localStorage.getItem(CART_KEY)));
       setNote((localStorage.getItem(NOTE_KEY) ?? '').slice(0, 300));
@@ -32,7 +30,7 @@ export function CartProvider({ children }) {
     };
   }, []);
   useEffect(() => {
-    if (!ready) return; // Jangan menimpa keranjang tersimpan dengan state awal yang kosong.
+    if (!ready) return;
     try {
       localStorage.setItem(CART_KEY, JSON.stringify(items));
       localStorage.setItem(NOTE_KEY, note);
@@ -40,13 +38,11 @@ export function CartProvider({ children }) {
       setStorageWarning(true);
     }
   }, [items, note, ready]);
-  // Satu notifikasi diganti setiap interaksi agar klik cepat tidak menumpuk toast.
   function notify(message) {
     if (timer.current) clearTimeout(timer.current);
     setToast(message);
     timer.current = setTimeout(() => setToast(''), 3200);
   }
-  // Functional update menjaga jumlah tetap benar saat tombol ditekan berulang.
   function add(id) {
     const menu = menuItems.find((item) => item.id === id);
     if (!menu || !ready) return;
@@ -56,7 +52,6 @@ export function CartProvider({ children }) {
     );
     notify(`${menu.name} ditambahkan ke pesanan`);
   }
-  // Ref mencegah konfirmasi ganda sebelum React menyelesaikan render berikutnya.
   function confirm(name, pickup) {
     if (!items.length || confirmed.current) return null;
     confirmed.current = true;
@@ -125,7 +120,6 @@ export function CartProvider({ children }) {
     </CartContext.Provider>
   );
 }
-// Hook memastikan komponen hanya membaca keranjang di dalam provider.
 export function useCart() {
   const context = useContext(CartContext);
   if (!context) throw new Error('useCart harus berada dalam CartProvider.');

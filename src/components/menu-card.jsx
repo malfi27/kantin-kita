@@ -3,7 +3,6 @@ import Image from 'next/image';
 import { Plus, Minus } from 'lucide-react';
 import { rupiah } from '@/lib/menu';
 import { useCart } from './cart-provider';
-// Kartu menerima satu menu; tombolnya langsung mengubah keranjang bersama.
 export function MenuCard({ item }) {
   const { add, items, ready } = useCart();
   const quantity = items.find((row) => row.id === item.id)?.quantity ?? 0;
@@ -45,7 +44,6 @@ export function MenuCard({ item }) {
     </article>
   );
 }
-// Kontrol jumlah tetap bisa menghapus item dengan mengurangi jumlah satu menjadi nol.
 export function QuantityControl({ id, name, quantity }) {
   const { setQuantity } = useCart();
   return (

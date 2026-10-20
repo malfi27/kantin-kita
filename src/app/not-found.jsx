@@ -1,5 +1,4 @@
 import { ButtonLink } from '@/components/ui';
-// Halaman cadangan membantu pengguna kembali jika URL tidak tersedia.
 export default function NotFound() {
   return (
     <main id="main" className="page-width py-24 text-center">

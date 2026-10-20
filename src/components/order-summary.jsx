@@ -2,7 +2,6 @@
 import { menuItems, rupiah } from '@/lib/menu';
 import { useCart } from './cart-provider';
 import { ButtonLink, PickupInfo } from './ui';
-// Ringkasan mengambil total dari state bersama agar selalu mengikuti perubahan jumlah.
 export function OrderSummary({ checkout = false, children }) {
   const { items, total } = useCart();
   return (

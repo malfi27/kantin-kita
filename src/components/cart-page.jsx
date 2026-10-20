@@ -7,7 +7,6 @@ import { menuItems, rupiah } from '@/lib/menu';
 import { QuantityControl } from './menu-card';
 import { EmptyCart, Field, OrderSteps } from './ui';
 import { OrderSummary } from './order-summary';
-// Keranjang menampilkan data yang dipulihkan setelah provider siap membaca storage.
 export function CartPage() {
   const { items, count, ready, note, setNote, setQuantity } = useCart();
   if (!ready)

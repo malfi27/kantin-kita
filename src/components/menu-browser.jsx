@@ -5,7 +5,6 @@ import { Search, X, Clock3, ShoppingBag, ArrowRight } from 'lucide-react';
 import { menuItems, rupiah } from '@/lib/menu';
 import { MenuCard } from './menu-card';
 import { useCart } from './cart-provider';
-// Pencarian dan kategori bekerja bersama pada data contoh, tanpa request ke backend.
 export function MenuBrowser() {
   const [query, setQuery] = useState('');
   const [category, setCategory] = useState('Semua menu');

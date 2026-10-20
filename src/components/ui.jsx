@@ -1,6 +1,5 @@
 import Link from 'next/link';
 import { ArrowRight, Check, ChevronRight, ShoppingBag, Store } from 'lucide-react';
-// Tombol tautan reusable untuk aksi yang berpindah halaman.
 export function ButtonLink({ href, children, secondary = false, className = '' }) {
   return (
     <Link
@@ -12,7 +11,6 @@ export function ButtonLink({ href, children, secondary = false, className = '' }
     </Link>
   );
 }
-// Judul halaman menerima teks kecil, judul utama, dan penjelasan singkat.
 export function PageHeading({ eyebrow, title, description }) {
   return (
     <div className="mb-8">
@@ -24,7 +22,6 @@ export function PageHeading({ eyebrow, title, description }) {
     </div>
   );
 }
-// Progress menunjukkan posisi pengguna dalam alur pemesanan tiga langkah.
 export function OrderSteps({ current }) {
   const steps = [
     { title: 'Pilih menu', href: '/menu' },
@@ -56,7 +53,6 @@ export function OrderSteps({ current }) {
     </nav>
   );
 }
-// Empty state mengarahkan pengguna kembali ke menu saat belum ada pesanan.
 export function EmptyCart() {
   return (
     <div className="rounded-2xl border border-line bg-white px-6 py-16 text-center">
@@ -73,7 +69,6 @@ export function EmptyCart() {
     </div>
   );
 }
-// Informasi pengambilan dipakai pada keranjang dan konfirmasi.
 export function PickupInfo({ payment = false }) {
   return (
     <div className="rounded-xl bg-peach p-4">
@@ -89,7 +84,6 @@ export function PickupInfo({ payment = false }) {
     </div>
   );
 }
-// Field membungkus input berlabel dan error yang terhubung untuk pembaca layar.
 export function Field({ id, label, error, children, optional = false }) {
   return (
     <div>

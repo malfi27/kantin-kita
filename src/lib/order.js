@@ -4,7 +4,6 @@ export const pickupOptions = [
   { value: '30-menit', label: '30 menit lagi' },
   { value: '60-menit', label: '1 jam lagi' },
 ];
-// Mengubah jumlah satu menu tanpa memutasi state React; nol berarti hapus.
 export function updateQuantity(cart, id, quantity) {
   if (!menuItems.some((item) => item.id === id) || !Number.isInteger(quantity) || quantity < 0)
     return cart;
@@ -14,7 +13,6 @@ export function updateQuantity(cart, id, quantity) {
     ? cart.map((item) => (item.id === id ? next : item))
     : [...cart, next];
 }
-// Storage bisa diedit atau rusak; hanya menu dan jumlah yang valid yang dipulihkan.
 export function parseCart(raw) {
   try {
     const parsed = JSON.parse(raw ?? '[]');
@@ -34,7 +32,6 @@ export function parseCart(raw) {
     return [];
   }
 }
-// Total memakai harga dari katalog, sehingga harga di storage tidak dipercaya.
 export function cartTotal(cart) {
   return cart.reduce(
     (total, item) =>
@@ -42,7 +39,6 @@ export function cartTotal(cart) {
     0,
   );
 }
-// Validasi dikembalikan per field agar UI dapat menampilkan pesan dekat input.
 export function validateCheckout(name, pickup, count) {
   const errors = {};
   if (name.trim().length < 2 || name.trim().length > 60)
@@ -52,7 +48,6 @@ export function validateCheckout(name, pickup, count) {
   if (count < 1) errors.cart = 'Tambahkan menu sebelum mengonfirmasi pesanan.';
   return errors;
 }
-// Validasi sendiri tetap memeriksa input spasi yang lolos dari atribut required.
 export function validateContact(data) {
   const errors = {};
   if (data.name.trim().length < 2 || data.name.length > 60)
@@ -63,7 +58,6 @@ export function validateContact(data) {
     errors.message = 'Tulis pesan antara 10–1.000 karakter.';
   return errors;
 }
-// Memulihkan bukti terakhir hanya jika bentuk datanya aman untuk ditampilkan.
 export function parseOrder(raw) {
   try {
     const data = JSON.parse(raw ?? 'null');

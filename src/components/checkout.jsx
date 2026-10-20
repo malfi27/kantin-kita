@@ -8,7 +8,6 @@ import { menuItems, rupiah } from '@/lib/menu';
 import { pickupOptions, validateCheckout } from '@/lib/order';
 import { ButtonLink, EmptyCart, Field, OrderSteps } from './ui';
 import { OrderSummary } from './order-summary';
-// Bukti pesanan bersumber dari snapshot, sehingga tidak berubah ketika keranjang baru diisi.
 function OrderReceipt({ order }) {
   return (
     <section className="panel mx-auto max-w-2xl text-center">
@@ -62,7 +61,6 @@ function OrderReceipt({ order }) {
     </section>
   );
 }
-// Form checkout memvalidasi input sebelum membuat bukti pesanan lokal.
 export function Checkout() {
   const { items, count, note, ready, confirm, lastOrder } = useCart();
   const [name, setName] = useState('');
@@ -76,7 +74,6 @@ export function Checkout() {
       </p>
     );
   if (!items.length) return lastOrder ? <OrderReceipt order={lastOrder} /> : <EmptyCart />;
-  // Validasi nama, jadwal, dan keranjang lebih dulu; fokus diarahkan ke input yang salah.
   function handleSubmit(event) {
     event.preventDefault();
     const nextErrors = validateCheckout(name, pickup, count);

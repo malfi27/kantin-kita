@@ -1,7 +1,6 @@
 import { PageHeading } from '@/components/ui';
 import { Checkout } from '@/components/checkout';
 export const metadata = { title: 'Ringkasan Pemesanan' };
-// Route ringkasan menampilkan form atau bukti terakhir sesuai state keranjang.
 export default function RingkasanPage() {
   return (
     <main id="main" className="page-width py-10 sm:py-12">

@@ -1,4 +1,3 @@
-// Peta ilustrasi SVG memakai koordinat contoh, bukan lokasi nyata atau layanan peta.
 export function LocationMap() {
   return (
     <div className="relative overflow-hidden rounded-2xl bg-[#eeede3]">
